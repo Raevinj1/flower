@@ -1,5 +1,3 @@
-from random import *
-
 def setup():
     size(346,520)
     
@@ -7,16 +5,14 @@ def setup():
     image (flowerImage,0,0)
     loadPixels()
 
-    
-# Filter; Remove 1 Color : Blue 
-    for r in range (len(pixels)):
-        currentPixel = pixels [r]
+    for i in range (len(pixels)):
+        currentPixel = pixels [i]
         pixelRed = red(currentPixel)
         pixelGreen = green (currentPixel)
         pixelBlue = blue (currentPixel)
-        pixelRed = pixelRed  
-        pixelGreen = pixelGreen 
-        pixelBlue =  0
+        pixelRed = 255 - pixelRed
+        pixelGreen = 255 - pixelGreen
+        pixelBlue = 255 - pixelBlue
         newColor = color(pixelRed, pixelGreen, pixelBlue)
-        pixels[r] = newColor
+        pixels[i] = newColor
     updatePixels()
